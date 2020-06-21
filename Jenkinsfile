@@ -33,6 +33,7 @@ BUILD_ID=DONTKILLME nohup java -jar /home/wangxing/jenkins_data/cap-java/cap-jav
 sleep 10
 echo $(ps -ef|grep java)
 echo "deploy script end"'''
+            sshPut(into: '/home/wangxing/jenkins_data/cap-java/cap-java.jar', from: '/home/newdisk/data/jenkins/workspace/Capistrano-java_master/target/cap-java.jar')
           }
         }
         stage('Deploy-14') {
