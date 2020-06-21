@@ -22,7 +22,7 @@ echo "kill $pid success"
 OLD_BUILD_ID=$BUILD_ID
 echo $OLD_BUILD_ID
 BUILD_ID=DONTKILLME nohup java -jar /home/newdisk/data/jenkins/workspace/Capistrano-java_master/target/cap-java.jar &
-sleep 30
+sleep 10
 echo $(ps -ef|grep java)
 echo "deploy script end"'''
       }
