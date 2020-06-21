@@ -7,6 +7,12 @@ pipeline {
       }
     }
     stage('Deploy') {
+      agent {
+        node {
+          label 'jenkins_slave'
+        }
+
+      }
       steps {
         sh '''echo "start deploy script"
 echo "start kill cap-java"
