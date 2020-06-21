@@ -16,7 +16,8 @@ pipeline {
 
           }
           steps {
-            sh '''echo "start deploy script"
+            sshPut(into: '/home/wangxing/jenkins_data/cap-java/cap-java.jar', from: '/home/newdisk/data/jenkins/workspace/Capistrano-java_master/target/cap-java.jar')
+            sh '''echo "start deploy-16 script"
 echo "start kill cap-java"
 echo `ps aux | grep -v grep | grep \'cap-java\'|awk \'NR==1\'`
 pid=`ps aux | grep -v grep | grep "cap-java"|awk \'NR==1 {print $2}\'`
@@ -33,7 +34,6 @@ BUILD_ID=DONTKILLME nohup java -jar /home/wangxing/jenkins_data/cap-java/cap-jav
 sleep 10
 echo $(ps -ef|grep java)
 echo "deploy script end"'''
-            sshPut(into: '/home/wangxing/jenkins_data/cap-java/cap-java.jar', from: '/home/newdisk/data/jenkins/workspace/Capistrano-java_master/target/cap-java.jar')
           }
         }
         stage('Deploy-14') {
